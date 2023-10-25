@@ -47,11 +47,9 @@ CREATE TABLE session (
 id INT NOT NULL AUTO_INCREMENT,
 user_id INT,
 inventory_id INT,
-progress_id INT,
 name VARCHAR(255),
 FOREIGN KEY (user_id) REFERENCES user(id),
 FOREIGN KEY (inventory_id) REFERENCES inventory(id),
-FOREIGN KEY (progress_id) REFERENCES progress(id),
 PRIMARY KEY (id)
 );
 
@@ -59,7 +57,9 @@ CREATE TABLE scenario (
 id INT NOT NULL AUTO_INCREMENT,
 enigma_id INT,
 session_id INT,
+progress_id INT,
 FOREIGN KEY (session_id) REFERENCES session(id),
 FOREIGN KEY (enigma_id) REFERENCES enigma(id),
+FOREIGN KEY (progress_id) REFERENCES progress(id),
 PRIMARY KEY (id)
 );
